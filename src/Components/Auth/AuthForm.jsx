@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { AuthButton } from './Button';
-import { ErrorText } from './ErrorText';
 import { AuthInput } from './Input';
 
 const authFormHandler = (event) => {
@@ -12,7 +11,7 @@ const authFormHandler = (event) => {
 export const AuthForm = ({ authType }) => {
   const [isValidated, setIsValidated] = useState(false);
   return (
-    <form onSubmit={authFormHandler}>
+    <form className='w-[100%] flex flex-col justify-end' onSubmit={authFormHandler}>
       <AuthInput inputType={'email'} />
       <AuthInput inputType={'password'} />
       <AuthButton authType={authType} />
