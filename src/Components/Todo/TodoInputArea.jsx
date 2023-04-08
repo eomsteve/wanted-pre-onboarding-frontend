@@ -1,16 +1,19 @@
 import { TodoAddButton } from './TodoAdd';
 import { TodoInputBox } from './TodoInput';
+import { createTodo } from '../../api/todo';
 
-export const TodoInputArea = () => {
-  const AddTodo = (event) => {
+export const TodoInputArea = ({todoList, dataObserver}) => {
+  const AddTodo = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    const userInput = formData.get('userInput');
+    const formData = new FormData(event.currentTarget);
+    const userInput = { todo: formData.get('todo') };
+    await createTodo(userInput);
+    dataObserver()
   };
   return (
-    <div className='w-[100%] h-[2rem] '>
-      <form onSubmit={AddTodo} className='flex justify-between flex-grow-3'>
+    <div className="w-[100%] h-[2rem] ">
+      <form onSubmit={AddTodo} className="flex justify-between flex-grow-3">
         <TodoInputBox />
         <TodoAddButton />
       </form>

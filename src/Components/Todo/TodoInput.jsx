@@ -3,7 +3,7 @@ export const TodoInputBox = () => {
     <input
       className="border-2 grow"
       type="text"
-      name="userInput"
+      name="todo"
       data-testid="new-todo-input"
     />
   );
