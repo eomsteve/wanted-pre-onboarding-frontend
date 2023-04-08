@@ -2,17 +2,22 @@ import { ErrorText } from './ErrorText';
 import { useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
 import { emailValidator } from '../../utils/auth';
-export const InputEmail = ({ isError }) => {
+export const InputEmail = ({ emailHandler }) => {
   const ErrorMessage = '이메일 입력을 확인해 주세요';
   const [userInput, setUserInput] = useState('');
-  const [isValidated, setIsValidated] = useState(true);
+  const [isValidated, setIsValidated] = useState(false);
   const inputValue = useDebounce(userInput);
   const onChangeHandler = (e) => {
     setUserInput(e.target.value);
   };
   useEffect(() => {
     setIsValidated(() => emailValidator(inputValue));
-  }, [inputValue]);
+    if (isValidated) {
+      emailHandler(true);
+    }else{
+      emailHandler(false);
+    }
+  }, [inputValue,isValidated]);
   return (
     <div className="mb-3 flex items-end flex-col">
       <input
@@ -21,9 +26,10 @@ export const InputEmail = ({ isError }) => {
         data-testid={`${'email'}-input`}
         placeholder="email"
         onChange={onChangeHandler}
+        name="email"
         required
       />
-      {inputValue && !isValidated ? <ErrorText texts={ErrorMessage} /> : ''}
+      {!inputValue || isValidated ? '' : <ErrorText texts={ErrorMessage} /> }
     </div>
   );
 };
