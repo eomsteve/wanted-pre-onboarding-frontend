@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { SignInPage } from "./pages/SignIn";
 import { SignUpPage } from "./pages/SignUp";
+import { AuthLayout } from "./layout/AuthLayout";
 
 const RoutePage = [
   {
@@ -8,13 +9,16 @@ const RoutePage = [
     path : "/signin",
     label : "로그인",
     element : <SignInPage/>,
-    withAuth : false
   },{
     id : 2,
     path : "/signup",
     label : "회원가입",
     element : <SignUpPage/>,
-    withAuth : false
+  },{
+    id:3,
+    path:"/todo",
+    label: "todo list",
+    element : <></>
   }
 ]
 
@@ -22,7 +26,7 @@ export const routers = createBrowserRouter(
   RoutePage.map(router =>{
     return {
       path : router.path,
-      element: router.element,
+      element: <AuthLayout>{router.element}</AuthLayout>
     }
   })
 )
