@@ -3,7 +3,7 @@ import { TodoItem } from './TodoListItem';
 
 export const TodoList = ({todoList, dataObserver}) => {
   return (
-    <ul>
+    <ul className='w-[100%]'>
       {todoList &&
         todoList.map((item) => {
           return (

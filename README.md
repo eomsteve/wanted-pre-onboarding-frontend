@@ -1,5 +1,5 @@
 # wanted-pre-onboarding-frontend
-원티드 프리온보딩 인턴쉽 과제
+원티드 프리온보딩 인턴쉽
 
 # Getting Started with Create React App
 
