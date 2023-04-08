@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export const useRouter = () => {
-  const router = useNavigate()
+  const router = useNavigate();
 
   return {
-    routeTo: (path) => router(path)
-  }
-}
+    routeTo: (path) => router(path),
+  };
+};

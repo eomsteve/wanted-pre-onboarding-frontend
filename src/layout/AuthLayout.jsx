@@ -1,21 +1,21 @@
-import { useCallback, useEffect } from "react";
-import { useRouter } from "../hooks/useRouter";
+import { useCallback, useEffect } from 'react';
+import { useRouter } from '../hooks/useRouter';
 
 export const AuthLayout = ({ children }) => {
   const { routeTo } = useRouter();
-  const isSignedIn = useCallback(async()=>{
+  const isSignedIn = useCallback(async () => {
     const token = localStorage.getItem('token');
-    if(token){
+    if (token) {
       routeTo('/todo');
       return;
     }
-    if(!token){
+    if (!token) {
       routeTo('/signin');
       return;
     }
-  },[])
-  useEffect(()=>{
+  }, []);
+  useEffect(() => {
     isSignedIn();
-  },[children])
+  }, [children]);
   return <>{children}</>;
 };

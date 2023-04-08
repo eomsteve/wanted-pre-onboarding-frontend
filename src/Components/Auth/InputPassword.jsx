@@ -15,10 +15,10 @@ export const InputPassword = ({ passwordHandler }) => {
     console.log(inputValue, isValidated);
     if (isValidated) {
       passwordHandler(true);
-    }else{
+    } else {
       passwordHandler(false);
     }
-  }, [inputValue,isValidated]);
+  }, [inputValue, isValidated]);
   return (
     <div className="mb-3 flex items-end flex-col">
       <input
@@ -30,7 +30,7 @@ export const InputPassword = ({ passwordHandler }) => {
         name="password"
         required
       />
-      {!inputValue || isValidated ? '':<ErrorText texts={ErrorMessage} /> }
+      {!inputValue || isValidated ? '' : <ErrorText texts={ErrorMessage} />}
     </div>
   );
 };

@@ -1,5 +1,3 @@
-import { isDisabled } from '@testing-library/user-event/dist/utils';
-
 export const AuthButton = ({ authType, disableState }) => {
   const label = authType === 'signin' ? 'Sign in' : 'Sign Up';
   return (

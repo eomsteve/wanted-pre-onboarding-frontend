@@ -14,10 +14,10 @@ export const InputEmail = ({ emailHandler }) => {
     setIsValidated(() => emailValidator(inputValue));
     if (isValidated) {
       emailHandler(true);
-    }else{
+    } else {
       emailHandler(false);
     }
-  }, [inputValue,isValidated]);
+  }, [inputValue, isValidated]);
   return (
     <div className="mb-3 flex items-end flex-col">
       <input
@@ -29,7 +29,7 @@ export const InputEmail = ({ emailHandler }) => {
         name="email"
         required
       />
-      {!inputValue || isValidated ? '' : <ErrorText texts={ErrorMessage} /> }
+      {!inputValue || isValidated ? '' : <ErrorText texts={ErrorMessage} />}
     </div>
   );
 };
