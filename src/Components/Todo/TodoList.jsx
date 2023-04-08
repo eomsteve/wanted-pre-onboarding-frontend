@@ -1,7 +1,7 @@
 
 import { TodoItem } from './TodoListItem';
 
-export const TodoList = ({todoList}) => {
+export const TodoList = ({todoList, dataObserver}) => {
   return (
     <ul>
       {todoList &&
@@ -12,6 +12,7 @@ export const TodoList = ({todoList}) => {
               id={item.id}
               todo={item.todo}
               isCompleted={item.isCompleted}
+              dataObserver={dataObserver}
             />
           );
         })}

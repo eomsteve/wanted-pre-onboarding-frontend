@@ -9,6 +9,8 @@ export const TodoInputArea = ({todoList, dataObserver}) => {
     const formData = new FormData(event.currentTarget);
     const userInput = { todo: formData.get('todo') };
     await createTodo(userInput);
+    const inputBox = document.getElementById("inputBox");
+    inputBox.value = '';
     dataObserver()
   };
   return (

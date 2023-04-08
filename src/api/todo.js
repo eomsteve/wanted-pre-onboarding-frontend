@@ -8,3 +8,7 @@ export const createTodo= async (todo)=>{
 export const getTodo=async()=>{
   return await client.get('/todos');
 }
+
+export const deleteTodo=async(id)=>{
+  return await client.delete(`/todos/${id}`);
+};
