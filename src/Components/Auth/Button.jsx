@@ -8,6 +8,7 @@ export const AuthButton = ({ authType, disableState }) => {
       type="submit"
       data-testid={`${authType}-button`}
       disabled={!disableState}
+      name={`${authType}`}
     >
       {label}
     </button>
