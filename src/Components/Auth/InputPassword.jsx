@@ -12,7 +12,6 @@ export const InputPassword = ({ passwordHandler }) => {
   };
   useEffect(() => {
     setIsValidated(() => passwordValidator(inputValue));
-    console.log(inputValue, isValidated);
     if (isValidated) {
       passwordHandler(true);
     } else {

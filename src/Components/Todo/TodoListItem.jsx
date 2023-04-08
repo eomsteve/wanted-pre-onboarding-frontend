@@ -33,7 +33,6 @@ export const TodoItem = ({ id, todo, isCompleted, dataObserver }) => {
         todo : todo,
         isCompleted : checked
       }
-      console.log(checked, updateData)
       await updateTodo(id,updateData);
       dataObserver();
     }
@@ -54,7 +53,7 @@ export const TodoItem = ({ id, todo, isCompleted, dataObserver }) => {
           {isModify ? '' : <span className="mx-3 grow">{todo}</span>}
         </label>
         {isModify ? (
-          <form onSubmit={modifySubmitHandler}>
+          <form onSubmit={modifySubmitHandler} className='flex w-[100%] '>
             <TodoModifyInput prevValue={todo}/> 
             <TodoSubmitButton dataObserver={dataObserver} />
             <TodoCancelButton modifyModeHandler={modifyModeHandler} />

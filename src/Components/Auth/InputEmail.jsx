@@ -23,7 +23,7 @@ export const InputEmail = ({ emailHandler }) => {
       <input
         className="w-[100%] border-solid border-2 rounded-md border-slate-500 focus:border-sky-400 h-5 py-4 px-3"
         type="email"
-        data-testid={`${'email'}-input`}
+        data-testid="email-input"
         placeholder="email"
         onChange={onChangeHandler}
         name="email"
