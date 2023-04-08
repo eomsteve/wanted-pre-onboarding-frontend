@@ -20,6 +20,12 @@ const RoutePage = [
     path:"/todo",
     label: "todo list",
     element : <TodoPage/>
+  },
+  {
+    id:4,
+    path:"/*",
+    label: "basic",
+    element : <div>something wrong...</div>
   }
 ]
 
