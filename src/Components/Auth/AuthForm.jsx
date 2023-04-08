@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AuthButton } from './Button';
-import { AuthInput } from './Input';
+import { InputEmail } from './InputEmail';
+import { InputPassword } from './InputPassword';
 
 const authFormHandler = (event) => {
   event.preventDefault();
@@ -9,12 +10,15 @@ const authFormHandler = (event) => {
 
 };
 export const AuthForm = ({ authType }) => {
-  const [isValidated, setIsValidated] = useState(false);
+  const [formValidation, setFormValidation] = useState({
+    email : false,
+    password : false
+  });
   return (
     <form className='w-[100%] flex flex-col justify-end' onSubmit={authFormHandler}>
-      <AuthInput inputType={'email'} />
-      <AuthInput inputType={'password'} />
-      <AuthButton authType={authType} />
+      <InputEmail />
+      <InputPassword />
+      <AuthButton authType={authType} isValidated={formValidation} />
     </form>
   );
 };

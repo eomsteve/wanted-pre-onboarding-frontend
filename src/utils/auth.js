@@ -1,4 +1,4 @@
-export const EmailValidator= (userInputEmail)=>{
+export const emailValidator= (userInputEmail)=>{
   return !!userInputEmail.match(/[\w]+\@[\w]+\.\w/g);
 }
 
