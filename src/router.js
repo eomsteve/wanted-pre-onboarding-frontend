@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { SignInPage } from "./pages/SignIn";
 import { SignUpPage } from "./pages/SignUp";
+import { TodoPage } from "./pages/Todo";
 import { AuthLayout } from "./layout/AuthLayout";
 
 const RoutePage = [
@@ -18,7 +19,7 @@ const RoutePage = [
     id:3,
     path:"/todo",
     label: "todo list",
-    element : <></>
+    element : <TodoPage/>
   }
 ]
 
