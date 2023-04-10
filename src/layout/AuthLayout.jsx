@@ -9,7 +9,7 @@ export const AuthLayout = ({ children }) => {
       routeTo('/todo');
       return;
     }
-    if (!token && currentPath === '/todo') {
+    if (!token && !(currentPath === '/signup' || currentPath === '/signin')) {
       routeTo('/signin');
       return;
     }
