@@ -2,16 +2,16 @@ import { TodoAddButton } from './TodoAdd';
 import { TodoInputBox } from './TodoInput';
 import { createTodo } from '../../api/todo';
 
-export const TodoInputArea = ({todoList, dataObserver}) => {
+export const TodoInputArea = ({ dataObserver }) => {
   const AddTodo = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const userInput = { todo: formData.get('todo') };
     await createTodo(userInput);
-    const inputBox = document.getElementById("inputBox");
+    const inputBox = document.getElementById('inputBox');
     inputBox.value = '';
-    dataObserver()
+    dataObserver();
   };
   return (
     <div className="w-[100%] h-[2rem] ">

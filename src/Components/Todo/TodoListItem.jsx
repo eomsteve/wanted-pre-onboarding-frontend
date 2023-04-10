@@ -1,43 +1,44 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { TodoDeleteButton } from './TodoDelete';
 import { TodoModifyButton } from './TodoModify';
 import { TodoSubmitButton } from './TodoSubmit';
 import { TodoCancelButton } from './TodoCancel';
 import { TodoModifyInput } from './TodoModifyInput';
 import { updateTodo } from '../../api/todo';
+import { ModifyForm } from './TodoModifyForm';
 export const TodoItem = ({ id, todo, isCompleted, dataObserver }) => {
   const [isModify, setIsModify] = useState(false);
   const [checked, setChecked] = useState(isCompleted);
   const modifyModeHandler = () => {
     setIsModify(() => !isModify);
   };
-  const modifySubmitHandler = async(event) => {
+  const modifySubmitHandler = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const updateData = {
-      todo : formData.get("modifyInput"),
-      isCompleted : checked
-    }
-    await updateTodo(id,updateData);
-    if(isModify === true){
+      todo: formData.get('modifyInput'),
+      isCompleted: checked,
+    };
+    await updateTodo(id, updateData);
+    if (isModify === true) {
       modifyModeHandler();
     }
     dataObserver();
   };
-  const checkboxStateChange= ()=>{
+  const checkboxStateChange = () => {
     setChecked(() => !checked);
-  }
-  useEffect(()=>{
-    const checkUpdate =async ()=>{
+  };
+  useEffect(() => {
+    const checkUpdate = async () => {
       const updateData = {
-        todo : todo,
-        isCompleted : checked
-      }
-      await updateTodo(id,updateData);
+        todo: todo,
+        isCompleted: checked,
+      };
+      await updateTodo(id, updateData);
       dataObserver();
-    }
+    };
     checkUpdate();
-  },[checked])
+  }, [checked]);
   return (
     <li className="w-[100%] flex border-b-2 p-2">
       <div className="w-[100%] flex justify-between flex-grow-5 items-center">
@@ -53,11 +54,12 @@ export const TodoItem = ({ id, todo, isCompleted, dataObserver }) => {
           {isModify ? '' : <span className="mx-3 grow">{todo}</span>}
         </label>
         {isModify ? (
-          <form onSubmit={modifySubmitHandler} className='flex w-[100%] '>
-            <TodoModifyInput prevValue={todo}/> 
-            <TodoSubmitButton dataObserver={dataObserver} />
-            <TodoCancelButton modifyModeHandler={modifyModeHandler} />
-          </form>
+          <ModifyForm
+            modifySubmitHandler={modifySubmitHandler}
+            dataObserver={dataObserver}
+            todo={todo}
+            modifyModeHandler={modifyModeHandler}
+          />
         ) : (
           <div>
             <TodoModifyButton modifyModeHandler={modifyModeHandler} />

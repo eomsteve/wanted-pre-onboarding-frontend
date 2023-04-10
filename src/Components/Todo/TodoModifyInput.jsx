@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export const TodoModifyInput = ({prevValue}) => {
+export const TodoModifyInput = ({ prevValue }) => {
   return (
     <input
       className="border-2  px-1 grow"

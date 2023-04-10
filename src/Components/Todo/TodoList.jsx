@@ -1,9 +1,8 @@
-
 import { TodoItem } from './TodoListItem';
 
-export const TodoList = ({todoList, dataObserver}) => {
+export const TodoList = ({ todoList, dataObserver }) => {
   return (
-    <ul className='w-[100%]'>
+    <ul className="w-[100%]">
       {todoList &&
         todoList.map((item) => {
           return (
